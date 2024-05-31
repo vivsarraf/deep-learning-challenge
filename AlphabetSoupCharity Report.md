@@ -1,27 +1,67 @@
-For this part of the assignment, you’ll write a report on the performance of the deep learning model you created for Alphabet Soup.
+### 21. deep-learning-challenge # AlphabetSoupCharity Funding Predictor
 
-The report should contain the following:
+## Overview
+### The goal of this project is to create an algorithm using machine learning and neural networks to predict whether applicants will be successful if funded by the fictional non-profit foundation, Alphabet Soup.
+----------------------------
+----------------------------
 
-Overview of the analysis: Explain the purpose of this analysis.
+## Process
+I was given a CSV file that I read into Pandas. This file contained more than 34,000 organizations that have received funding from the fictional foundation along with several columns of metadata about each organization.
 
-Results: Using bulleted lists and images to support your answers, address the following questions:
+PREPROCESSING<br>
+I preprocessed the data by:
+* dropping non-beneficial columns,
+* finding the number of data points for each unique value for each of the columns that had more than 10 unique values - APPLICATION_TYPE and CLASSIFICATION,
+* choosing a cutoff point of 600 and 300, respectively, to bin rare categorical values together into a new value called "Other",
+* using `pd.get_dummies()` to convert categorical data to numeric,
+* dividing the data into a target array (IS_SUCCESSFUL) and features arrays,
+* applying the `train_test_split` to create a testing and a training dataset,
+* and finally, using `StandardScaler` to scale the training and testing sets
 
-Data Preprocessing
+The resulting data included 44 features. The target variable (y) was IS_SUCCESSFUL. The data was split into training and test subsets.
 
-What variable(s) are the target(s) for your model?
-The target variable is the 'IS_SUCCESSFUL' column from application_df
-What variable(s) are the features for your model?
-The feature variables are every other column from application_df --> this was defined by dropping the 'IS_SUCCESSFUL' column from the original dataframe
-What variable(s) should be removed from the input data because they are neither targets nor features?
-Both 'EIN' and 'NAME' columns were dropped/removed, because they were neither targets nor features for the dataset.
-Compiling, Training, and Evaluating the Model
+COMPILING, TRAINING, AND EVALUATING THE MODEL<br>
+The model was required to achieve a target predictive accuracy higher than 75%. I made three official attempts using machine learning and neural networks. They all resulted in the same accuracy rate – right around 72-73%, so a little short of the required target accuracy.
 
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-In the first attempt, i used 8 hidden_nodes_layer1 and 5 hidden_nodes_layer2 -- these were just random guesses from which to iterate upon in the second try.
-Were you able to achieve the target model performance?
-I was not able to achieve the 75% model accuracy target
-What steps did you take in your attempts to increase model performance?
-I added more layers, removed more columns, added additional hidden nodes, and switched up the activation functions associated with each layer in an attempt to achieve higher model accuracy.
-Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+Results from each model attempt are detailed below:
 
-Overall, the deep learning model was around 73% accurate in predicting the classification problem. Using a model with greater correlation between input and output would likely result in higher prediction accuracy. This could be achieved by doing additional data cleanup up front, as well as by using a model with different activation functions and iterating until higher accuracy is reached.
+ATTEMPT 1<br>
+The first attempt (Models/AlphabetSoupCharity1.h5) resulted in an <b>accuracy score of 73.2%. This was the highest accuracy score of the three models.</b> This means that 73.2% of the model’s predicted values align with the dataset’s true values.
+
+The hyperparameters used were:
+* layers = 2
+  * layer1 = 9 neurons : activation function = ‘relu’
+  * layer2 = 18 neurons : activation function = ‘relu'
+* epochs = 100
+
+![Model 1 Accuracy Plot](Resources/Model1_accuracy.png)
+
+ATTEMPT 2<br>
+For my second attempt (Models/AlphabetSoupCharity2.h5) I added another layer. This attempt resulted in an <b>accuracy score of 72.85%.</b> This means that 72.85% of the model’s predicted values align with the dataset’s true values.
+
+The hyperparameters used were:
+* layers = 3
+  * layer1 = 9 neurons : activation function = ‘relu’
+  * layer2 = 18 neurons : activation function = ‘relu’
+  * layer3 = 27 neurons : activation function = ‘relu’
+* epochs = 100
+
+![Model 2 Accuracy Plot](Resources/Model2_accuracy.png)
+
+ATTEMPT 3<br>
+For my third and final attempt (Resources/AlphabetSoupCharity3.h5) I kept the third layer and changed the activation function for layers 2 and 3. This attempt resulted in an <b>accuracy score of 73.2%.</b> This means that 73.2% of the model’s predicted values align with the dataset’s true values.
+
+The hyperparameters used were:
+* layers = 3
+  * layer1 = 9 neurons : activation function = ‘relu’
+  * layer2 = 18 neurons : activation function = ‘tanh’
+  * layer3 = 27 neurons : activation function = ‘tanh’
+* epochs = 100
+
+![Model 3 Accuracy Plot](Resources/Model3_accuracy.png)
+
+
+## Summary
+In the three attempts I made, the model was unable to achieve a target predictive accuracy higher than 73.2%. Hypertuning resulted in virtually no improvement. I would consider using another classification model to see if it is better at predicting whether applicants will be successful if funded by Alphabet Soup.
+
+
