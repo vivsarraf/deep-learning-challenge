@@ -26,7 +26,7 @@ The model was required to achieve a target predictive accuracy higher than 75%. 
 Results from each model attempt are detailed below:
 
 # ATTEMPT 1<br>
-The first attempt (Models/AlphabetSoupCharity1.h5) resulted in an <b>accuracy score of 73.32%. This was the highest accuracy score of the three models.</b> This means that 73.32% of the model’s predicted values align with the dataset’s true values.
+The first attempt resulted in an <b>accuracy score of 73.32%. This was the highest accuracy score of the three models.</b> This means that 73.32% of the model’s predicted values align with the dataset’s true values.
 
 The hyperparameters used were:
 * layers = 2
@@ -37,7 +37,7 @@ The hyperparameters used were:
 ![Model 1 Accuracy Plot](Resources/Model1_accuracy.png)
 
 # ATTEMPT 2<br>
-For my second attempt (Models/AlphabetSoupCharity2.h5). This attempt resulted in an <b>accuracy score of 73.40%.</b> This means that 73.40% of the model’s predicted values align with the dataset’s true values.
+ This attempt resulted in an <b>accuracy score of 73.40%.</b> This means that 73.40% of the model’s predicted values align with the dataset’s true values.
 
 The hyperparameters used were:
 * layers = 2
@@ -49,7 +49,7 @@ The hyperparameters used were:
 ![Model 2 Accuracy Plot](Resources/Model2_accuracy.png)
 
 # ATTEMPT 3<br>
-For my third and final attempt (Resources/AlphabetSoupCharity3.h5).Changed the activation function for second layer.This attempt resulted in an <b>accuracy score of 73.31%.</b> This means that 73.31% of the model’s predicted values align with the dataset’s true values.
+For my third and final attempt.Changed the activation function for second layer.This attempt resulted in an <b>accuracy score of 73.31%.</b> This means that 73.31% of the model’s predicted values align with the dataset’s true values.
 
 The hyperparameters used were:
 * layers = 2
