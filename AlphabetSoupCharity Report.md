@@ -49,12 +49,12 @@ The hyperparameters used were:
 ![Model 2 Accuracy Plot](Resources/Model2_accuracy.png)
 
 # ATTEMPT 3<br>
-For my third and final attempt (Resources/AlphabetSoupCharity3.h5) . This attempt resulted in an <b>accuracy score of 73.31%.</b> This means that 73.31% of the model’s predicted values align with the dataset’s true values.
+For my third and final attempt (Resources/AlphabetSoupCharity3.h5).Changed the activation function for second layer.This attempt resulted in an <b>accuracy score of 73.31%.</b> This means that 73.31% of the model’s predicted values align with the dataset’s true values.
 
 The hyperparameters used were:
 * layers = 2
   * layer1 = 20 neurons : activation function = ‘relu’
-  * layer2 = 20 neurons : activation function = ‘relu’
+  * layer2 = 20 neurons : activation function = ‘tanh’
  
 * epochs = 100
 
